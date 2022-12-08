@@ -8,8 +8,8 @@ function LoginForm({ onLogin }) {
     password: '',
   })
 
-  // const [errors, setErrors] = useState([]);
-  // const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   function handleFormChange(e) {
     const field = e.target.id;
@@ -24,7 +24,23 @@ function LoginForm({ onLogin }) {
 
   function handleLoginSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    fetch('/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+       username: formData.username,
+       password: formData.password
+      })
+    }).then((r)=>{
+      setLoading(false)
+      if (r.ok) {
+        r.json().then((user)=> onLogin(user));
+      } else {
+        r.json().then((errors)=> setErrors(errors.errors))
+      }
+    })
   }
 
   return(
@@ -45,6 +61,7 @@ function LoginForm({ onLogin }) {
         <Form.Control 
           id='password'
           type='password' 
+          value={formData.password}
           placeholder='password'
           onChange={handleFormChange}
         />
