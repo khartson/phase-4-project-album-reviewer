@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
+import Image from 'react-bootstrap/Image';
 
 function SignUpForm({ onLogin }) {
   
@@ -28,7 +30,9 @@ function SignUpForm({ onLogin }) {
   }
 
   function handleSignUpSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    setLoading(true);
+
     fetch('/signup', {
       method: "POST",
       headers: {
@@ -54,7 +58,18 @@ function SignUpForm({ onLogin }) {
   
   return(
     <Form onSubmit={handleSignUpSubmit}>
-      <Form.Group classnName='mb-3'>
+      <Image height={50}className='mb-3' roundedCircle src={formData.pfp_url}/>
+      <Form.Group className='mb-3'>
+        <Form.Label>Profile Image URL</Form.Label>
+        <Form.Control
+          id='pfp_url'
+          type='text'
+          value={formData.pfp_url}
+          placeholder='Enter an image URL for a profile picture'
+          onChange={handleFormChange}
+        />
+      </Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Name</Form.Label>
         <Form.Control 
           id='name'
@@ -74,7 +89,7 @@ function SignUpForm({ onLogin }) {
           onChange={handleFormChange}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Password</Form.Label>
         <Form.Control
           id='password'
@@ -84,27 +99,17 @@ function SignUpForm({ onLogin }) {
           onChange={handleFormChange}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Password Confirmation</Form.Label>
         <Form.Control
           id='password_confirmation'
           type='password'
-          vallue={formData.password_confirmation}
+          value={formData.password_confirmation}
           placeholder='Confirm your password'
           onChange={handleFormChange}
         />
       </Form.Group>
-      <Form.Group>
-        <Form.Label>Profile Image URL</Form.Label>
-        <Form.Control
-          id='pfp_url'
-          type='text'
-          value={formData.pfp_url}
-          placeholder='Enter an image URL for a profile picture'
-          onChange={handleFormChange}
-        />
-      </Form.Group>
-      <Form.Group>
+      <Form.Group className='mb-3'>
         <Form.Label>Bio</Form.Label>
         <Form.Control
           as='textarea'
@@ -117,10 +122,13 @@ function SignUpForm({ onLogin }) {
       <Button
         variant='primary'
         type='submit'
+        className='mb-3'
       >
-        Sign Up
+        {loading ? 'Loading...' : 'Sign Up'}
       </Button>
-      <div>{errors}</div>
+      {errors.map((error) => {
+        return <Alert key={error} variant='danger'>{error}</Alert>
+      })}
     </Form>
   )
 }

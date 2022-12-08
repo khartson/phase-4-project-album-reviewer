@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 
 function LoginForm({ onLogin }) {
   const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ function LoginForm({ onLogin }) {
 
   function handleLoginSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     fetch('/login', {
       method: "POST",
       headers: {
@@ -69,9 +71,13 @@ function LoginForm({ onLogin }) {
         <Button 
           variant='primary' 
           type='submit'
+          className='mb-3'
         >
-          Login
+          {loading? 'Loading...' : 'Log In'}
         </Button>
+        {errors.map((error) => {
+          return <Alert key={error} variant='danger'>{error}</Alert>
+        })}
     </Form>
   )
 }
