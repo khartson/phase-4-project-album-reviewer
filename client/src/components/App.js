@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login';
+import Profile from '../pages/Profile';
+import NavBar from './NavBar';
 
 function App() {
 
@@ -16,7 +19,14 @@ function App() {
   
   if (!user) return <Login onLogin={setUser}/>
 
-  return <div>Logged in as: {user.username}</div>
+  return (
+    <>
+      <NavBar user={user} onLogout={setUser} />
+      <Routes>
+        <Route path='profile' element={<Profile user={user}/>}></Route>
+      </Routes>
+    </>
+  )
 }
 
 export default App;
