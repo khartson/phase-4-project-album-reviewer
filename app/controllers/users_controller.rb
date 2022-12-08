@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     user = User.create!(user_params)
     session[:user_id] = user.id
-    render json: user, status: created 
+    render json: user, status: :created 
   end 
 
   def show 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end 
 
   def render_unprocessable_entity_response(invalid)
-    render josn: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end 
 
 end

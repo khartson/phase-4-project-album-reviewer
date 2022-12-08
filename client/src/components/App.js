@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Login from '../pages/Login';
 
 function App() {
 
@@ -12,9 +13,7 @@ function App() {
   }, []);
 
   return (
-    <div>
-      hello 
-    </div>
+    <Login></Login>
   );
 }
 
