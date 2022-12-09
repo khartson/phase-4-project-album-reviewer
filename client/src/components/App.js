@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login';
-import Profile from '../pages/Profile';
+import Profile from '../pages/Account';
 import NavBar from './NavBar';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
     <>
       <NavBar user={user} onLogout={setUser} />
       <Routes>
-        <Route path='profile' element={<Profile user={user}/>}></Route>
+        <Route path='profile' element={<Account user={user}/>}></Route>
       </Routes>
     </>
   )

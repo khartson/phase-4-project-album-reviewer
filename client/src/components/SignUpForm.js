@@ -39,12 +39,16 @@ function SignUpForm({ onLogin }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: formData.name,
-        username: formData.username,
-        password: formData.password,
-        password_confirmation: formData.password_confirmation,
-        bio: formData.bio,
-        pfp_url: formData.pfp_url,
+        user: {
+          username: formData.username,
+          password: formData.password,
+          password_confirmation: formData.password_confirmation,
+          bio: formData.bio,
+          pfp_url: formData.pfp_url,
+          profile_attributes: {
+            name: formData.name
+          }
+        }
       })
     }).then((r)=>{
       setLoading(false)
