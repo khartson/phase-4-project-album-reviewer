@@ -7,4 +7,12 @@ class Profile < ApplicationRecord
     self.user.pfp_url
   end 
 
+  def username
+    self.user.username
+  end 
+
+  def bio
+    self.user.bio
+  end 
+
 end
