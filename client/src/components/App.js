@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login';
-import Profile from '../pages/Account';
+import Account from '../pages/Account';
 import NavBar from './NavBar';
 
 function App() {

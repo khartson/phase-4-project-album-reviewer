@@ -1,13 +1,13 @@
 import React from 'react';
-import User from '../components/User';
+import Profile from '../components/Profile';
 import { Route, useRouteMatch } from 'react-router-dom';
 
-function Profile({ user }) {
+function Account({ user }) {
   return (
     <>
-      <User userId={user.id}/>
+      <Profile userId={user.id} user={user}/>
     </>
   )
 }
 
-export default Profile;
+export default Account;
