@@ -11,7 +11,6 @@ function App() {
     fetch('/me').then((r)=>{
       console.log(r.status)
       if (r.ok){
-        console.log(r.ok)
         r.json().then((user)=>setUser(user));
       }
     });
