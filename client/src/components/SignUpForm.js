@@ -9,8 +9,6 @@ function SignUpForm({ onLogin }) {
   const [formData, setFormData] = useState({
     name: '',
     username: '',
-    password: '',
-    password_confirmation: '',
     bio: '',
     pfp_url: '',
   })

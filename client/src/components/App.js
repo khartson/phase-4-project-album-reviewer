@@ -22,7 +22,7 @@ function App() {
     <>
       <NavBar user={user} onLogout={setUser} />
       <Routes>
-        <Route path='profile' element={<Account user={user}/>}></Route>
+        <Route path='profile' element={<Account user={user} onUpdate={setUser}/>}></Route>
       </Routes>
     </>
   )

@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 import { BsFillPencilFill } from 'react-icons/bs';
 import { GrView } from 'react-icons/gr';
 
-function Account({ user }) {
+function Account({ user, onUpdate }) {
 
   const [editMode, setEditMode] = useState('view');
   function toggleEditMode() {
@@ -18,16 +18,15 @@ function Account({ user }) {
         <h1>View or Edit Your Account Information</h1>
         {editMode === 'view' ? (
           <>
-            <Profile userId={user.id} use={user}/>
+            <Profile user={user}/>
             <span className='link-primary' onClick={toggleEditMode}><BsFillPencilFill/>{' '}Edit Profile</span>
           </>
         ) : (
           <>
-            <EditProfileForm toggleEditMode={toggleEditMode}/>
+            <EditProfileForm user={user} toggleEditMode={toggleEditMode} onUpdate={onUpdate}/>
             <span className='link-primary' onClick={toggleEditMode}><GrView/>{' '}View Profile</span>
           </>
         )}
-        <div>{editMode}</div>
       </Container>
     </>
   )
