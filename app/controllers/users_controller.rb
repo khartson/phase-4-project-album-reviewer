@@ -9,6 +9,11 @@ class UsersController < ApplicationController
   end 
 
   def show 
+    user = User.find(params[:id])
+    render json: user, serializer: UserProfileSerializer
+  end 
+
+  def auth
     user = User.find_by(id: session[:user_id])
     if user
       render json: user
@@ -20,7 +25,7 @@ class UsersController < ApplicationController
   private 
   
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, :bio, :pfp_url, profile_attributes: [:name])
+    params.require(:user).permit(:username, :password, :password_confirmation, profile_attributes: [:name, :bio, :pfp_url])
   end 
 
   def render_unprocessable_entity_response(invalid)

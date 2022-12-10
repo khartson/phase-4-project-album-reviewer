@@ -43,10 +43,10 @@ function SignUpForm({ onLogin }) {
           username: formData.username,
           password: formData.password,
           password_confirmation: formData.password_confirmation,
-          bio: formData.bio,
-          pfp_url: formData.pfp_url,
           profile_attributes: {
-            name: formData.name
+            name: formData.name,
+            bio: formData.bio,
+            pfp_url: formData.pfp_url,
           }
         }
       })

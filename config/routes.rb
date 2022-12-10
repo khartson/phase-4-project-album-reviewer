@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :profiles
   resources :users
 
   # sign in flow rotues
   post '/signup', to: 'users#create'
-  get '/me', to: 'users#show'
+  get '/me', to: 'users#auth'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'  
 
