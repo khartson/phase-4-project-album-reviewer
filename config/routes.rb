@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :albums
+  resources :artists
   resources :users
 
   # sign in flow rotues
