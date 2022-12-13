@@ -21,6 +21,9 @@ function NavBar({ user, onLogout }) {
           <LinkContainer to='/albums/new'>
             <Nav.Link>Add an Album</Nav.Link>
           </LinkContainer>
+          <LinkContainer to='artists/new'>
+            <Nav.Link>Add an Artist</Nav.Link>
+          </LinkContainer>
         </Nav>
         <Nav>
           <LinkContainer to='profile'>
