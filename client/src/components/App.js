@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import Login from '../pages/Login';
 import Account from '../pages/Account';
 import NavBar from './NavBar';
+import NewArtist from '../pages/NewArtist';
+import Home from '../pages/Home'; 
+import Artists from '../pages/Artists';
 
 function App() {
 
@@ -22,7 +25,10 @@ function App() {
     <>
       <NavBar user={user} onLogout={setUser} />
       <Routes>
+        <Route path='/' element={<Home/>}/>
         <Route path='profile' element={<Account user={user} onUpdate={setUser}/>}></Route>
+        <Route path='artists/new' element={<NewArtist/>}/> 
+        <Route path='artists' element={<Artists/>}/>
       </Routes>
     </>
   )

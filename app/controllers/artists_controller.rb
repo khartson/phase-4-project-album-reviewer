@@ -1,5 +1,9 @@
 class ArtistsController < ApplicationController
 
+  def index
+    render json: Artist.all
+  end 
+
   def create
     artist = Artist.create!(artist_params)
     render json: artist, status: :created 

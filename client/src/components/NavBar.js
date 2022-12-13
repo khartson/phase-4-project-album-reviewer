@@ -27,7 +27,7 @@ function NavBar({ user, onLogout }) {
         </Nav>
         <Nav>
           <LinkContainer to='profile'>
-            <Nav.Link>{user.username}{' '}<Image roundedCircle height={30} src={user.profile.pfp_url}/></Nav.Link>
+            <Nav.Link>{user.username}{' '}<Image roundedCircle height={30} width={30} src={user.profile.pfp_url}/></Nav.Link>
           </LinkContainer>
           <Nav.Link onClick={handleLogoutClick}>Sign out</Nav.Link>
         </Nav>
