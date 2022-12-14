@@ -5,7 +5,7 @@ include Pagy::Backend
     @pagy, @records = pagy(Artist.all)
     render json: { data: @records,
                    **pagy_metadata(@pagy)
-                  }, include: [:albums]
+                  }
   end 
 
   def create

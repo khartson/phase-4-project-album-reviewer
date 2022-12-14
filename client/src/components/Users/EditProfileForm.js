@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Form, Image, Button, Spinner, Alert } from 'react-bootstrap';
-import EditableFormField from './EditableFormField';
+import EditableFormField from '../EditableFormField';
 
 function EditProfileForm({ user, toggleEditMode, onUpdate }) {
 

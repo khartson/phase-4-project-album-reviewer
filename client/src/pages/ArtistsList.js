@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import ArtistPreview from '../components/ArtistPreview';
-import { Button, Container, Row, Col } from 'react-bootstrap'; 
+import { Button, Container, Row, Col } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+import ArtistPreview from '../components/Artists/ArtistPreview'; 
 
-function Artists() {
+
+function ArtistsList() {
+
+  const location = useLocation(); 
   const [artists, setArtists] = useState([]);
 
   const [urls, setUrls] = useState({
@@ -45,7 +50,7 @@ function Artists() {
   }
 
   return(
-    <Container>
+      <Container>
       <Row sm={'auto'}>
       { artists.length === 0 ? (
           <div>empty</div>
@@ -53,9 +58,11 @@ function Artists() {
         <>
           {artists.map((artist)=>{
               return (
-                <Col>
-                  <ArtistPreview artist={artist}/>
+                <LinkContainer key={artist.id} style={{ width: '15rem', height: '18rem'}} to={`${location.pathname}/${artist.id}`}>
+                <Col style={{ width: '15rem', height: '18rem'}}>
+                    <ArtistPreview artist={artist}/>
                 </Col>
+                </LinkContainer>
               )
             })}
         </>
@@ -66,6 +73,6 @@ function Artists() {
       </Row>
     </Container>
   )
-} 
+}
 
-export default Artists;
+export default ArtistsList; 

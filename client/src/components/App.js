@@ -5,7 +5,8 @@ import Account from '../pages/Account';
 import NavBar from './NavBar';
 import NewArtist from '../pages/NewArtist';
 import Home from '../pages/Home'; 
-import Artists from '../pages/Artists';
+import ArtistPage from '../pages/ArtistPage';
+import ArtistsList from '../pages/ArtistsList';
 
 function App() {
 
@@ -26,9 +27,12 @@ function App() {
       <NavBar user={user} onLogout={setUser} />
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='profile' element={<Account user={user} onUpdate={setUser}/>}></Route>
-        <Route path='artists/new' element={<NewArtist/>}/> 
-        <Route path='artists' element={<Artists/>}/>
+        <Route path='profile' element={<Account user={user} onUpdate={setUser}/>}/>
+        <Route path='artists'>
+          <Route index element={<ArtistsList/>}/>
+          <Route path='new' element={<NewArtist/>}/>
+          <Route path=':artistId' element={<ArtistPage/>}/>
+        </Route>
       </Routes>
     </>
   )

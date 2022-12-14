@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Profile from '../components/Profile';
-import EditProfileForm from '../components/EditProfileForm';
+import Profile from '../components/Users/Profile';
+import EditProfileForm from '../components/Users/EditProfileForm';
 import { Container } from 'react-bootstrap';
 import { BsFillPencilFill } from 'react-icons/bs';
 import { GrView } from 'react-icons/gr';
