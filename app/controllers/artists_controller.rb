@@ -1,7 +1,11 @@
 class ArtistsController < ApplicationController
+include Pagy::Backend
 
   def index
-    render json: Artist.all
+    @pagy, @records = pagy(Artist.all)
+    render json: { data: @records,
+                   **pagy_metadata(@pagy)
+                  }, include: [:albums]
   end 
 
   def create
