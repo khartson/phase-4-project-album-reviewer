@@ -9,7 +9,6 @@ function AlbumPage() {
   const { albumId } = useParams();
   const [album, setAlbum] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [errors, setErrors] = useState([]);
 
   useEffect(()=>{
     fetch(`/albums/${albumId}`).then((r)=>{
@@ -18,7 +17,7 @@ function AlbumPage() {
         r.json().then((r)=>{
           setAlbum(r);
         })
-      } else r.json().then((err)=>setErrors(err.errors))
+      }
     })
   }, []);
 

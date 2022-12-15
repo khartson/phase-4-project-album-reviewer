@@ -61,11 +61,11 @@ function Albums() {
         <NoResultsPage category='albums'/>
       ) : (
         <AlbumList albums={albums}/>
-      )
-      }
+      )}
       </Row>
+      <hr/>
       <Row>
-         <Button variant='dark' disabled={endReached} onClick={showMoreAlbums}>Show More</Button>
+         <Button variant='link' disabled={endReached} onClick={showMoreAlbums}>Show More</Button>
       </Row>
     </Container>
 

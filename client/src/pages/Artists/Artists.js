@@ -4,13 +4,14 @@ import { useLocation } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import ArtistPreview from '../../components/Artists/ArtistPreview'; 
 import NoResultsPage from '../Fetching/NoResultsPage';
-
+import ArtistList from '../../components/Artists/ArtistList';
+import LoadingPage from '../Fetching/LoadingPage';
 
 function Artists() {
 
   const location = useLocation(); 
   const [artists, setArtists] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const [urls, setUrls] = useState({
     next: null,
     last: null, 
@@ -21,6 +22,7 @@ function Artists() {
 
   useEffect(()=>{
     fetch('/artists').then((r)=>{
+      setLoading(false);
       if (r.ok){
         r.json().then((r)=>{
           setArtists(r.data);
@@ -50,27 +52,20 @@ function Artists() {
     }
   }
 
+  if (loading) return <LoadingPage/>
   return(
       <Container>
+      <hr/>
       <Row sm={'auto'}>
       { artists.length === 0 ? (
           <NoResultsPage category={'artists'}/>
       ) : (
-        <>
-          {artists.map((artist)=>{
-              return (
-                <LinkContainer key={artist.id} style={{ width: '15rem', height: '18rem'}} to={`${location.pathname}/${artist.id}`}>
-                <Col style={{ width: '15rem', height: '18rem'}}>
-                    <ArtistPreview artist={artist}/>
-                </Col>
-                </LinkContainer>
-              )
-            })}
-        </>
+        <ArtistList artists={artists}/>
       )}
       </Row>
+      <hr/>
       <Row>
-            <Button disabled={endReached} onClick={showMoreArtists}>Show More</Button>
+            <Button variant='link'disabled={endReached} onClick={showMoreArtists}>Show More</Button>
       </Row>
     </Container>
   )
