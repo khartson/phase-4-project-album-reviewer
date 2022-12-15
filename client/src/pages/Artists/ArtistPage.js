@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
-import LoadingPage from './LoadingPage';
+import LoadingPage from '../Fetching/LoadingPage';
+import NoResultsPage from '../Fetching/NoResultsPage';
+import AlbumList from '../../components/Albums/AlbumList';
 function ArtistPage() {
 
   const { artistId } = useParams();
@@ -46,10 +48,13 @@ function ArtistPage() {
         <Row>
           <h2 className='text-muted'>Albums</h2>
         </Row>
+        <Row sm={'auto'}>
+          <AlbumList albums={artist.albums}/>
+        </Row>
         <hr/>
       </>
     ) : (
-      <h1>{errors}</h1>
+      <NoResultsPage category='artists'/>
     )}
     <Link to='/artists'>Return to Artists</Link>
     </Container>

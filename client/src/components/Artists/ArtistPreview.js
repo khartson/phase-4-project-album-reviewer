@@ -5,7 +5,7 @@ import { TbMicrophone2 } from 'react-icons/tb';
 function ArtistPreview({ artist }) {
 
   return(
-    <Card className='mb-3' style={{}}>
+    <Card className='mb-3'>
       { artist.image_url ? (
         <Card.Img style={{ objectFit: 'cover', height: '12rem'}} variant='top' src={artist.image_url}/>
       ) : ( 

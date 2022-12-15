@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import ArtistPreview from '../components/Artists/ArtistPreview'; 
+import ArtistPreview from '../../components/Artists/ArtistPreview'; 
+import NoResultsPage from '../Fetching/NoResultsPage';
 
 
-function ArtistsList() {
+function Artists() {
 
   const location = useLocation(); 
   const [artists, setArtists] = useState([]);
@@ -53,7 +54,7 @@ function ArtistsList() {
       <Container>
       <Row sm={'auto'}>
       { artists.length === 0 ? (
-          <div>empty</div>
+          <NoResultsPage category={'artists'}/>
       ) : (
         <>
           {artists.map((artist)=>{
@@ -75,4 +76,4 @@ function ArtistsList() {
   )
 }
 
-export default ArtistsList; 
+export default Artists; 

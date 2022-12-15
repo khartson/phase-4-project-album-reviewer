@@ -1,5 +1,5 @@
 import React from 'react';
-import NewArtistForm from '../components/Artists/NewArtistForm';
+import NewArtistForm from '../../components/Artists/NewArtistForm';
 import { Container } from 'react-bootstrap';
 
 

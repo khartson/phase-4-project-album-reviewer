@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import LoginForm from '../components/Users/LoginForm';
-import SignUpForm from '../components/Users/SignUpForm';
+import LoginForm from '../../components/Users/LoginForm';
+import SignUpForm from '../../components/Users/SignUpForm';
 import Container from 'react-bootstrap/Container';
 
 function Login({ onLogin }) {

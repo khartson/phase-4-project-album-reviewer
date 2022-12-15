@@ -4,6 +4,7 @@ class Album < ApplicationRecord
 
   validates :title, presence: true
   validates :artist, presence: true
+  validates :album_art_url, presence: true
 
   validate :artist_already_has_this_album, on: :create
 
