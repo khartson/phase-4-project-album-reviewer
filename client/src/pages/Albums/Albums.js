@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { Button, Container, Row } from 'react-bootstrap';
 import LoadingPage from '../Fetching/LoadingPage';
 import NoResultsPage from '../Fetching/NoResultsPage';
 import AlbumList from '../../components/Albums/AlbumList';
@@ -8,7 +7,6 @@ import AlbumList from '../../components/Albums/AlbumList';
 
 function Albums() {
   
-  const location = useLocation();
   const [albums, setAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
 

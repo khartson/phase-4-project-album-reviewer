@@ -9,7 +9,7 @@ function ArtistPreview({ artist }) {
       { artist.image_url ? (
         <Card.Img style={{ objectFit: 'cover', height: '12rem'}} variant='top' src={artist.image_url}/>
       ) : ( 
-        <TbMicrophone2 style={{ height: '15rem', width: '15rem'}}/>
+        <TbMicrophone2 style={{ height: '12rem', width: '15rem'}}/>
       )}
       <Card.Body>
         <Card.Title style={{fontSize: '15px', maxHeight: '20px', overflow: 'hidden'}}>{artist.name}</Card.Title>

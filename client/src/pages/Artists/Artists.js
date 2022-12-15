@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
-import { LinkContainer } from 'react-router-bootstrap';
-import ArtistPreview from '../../components/Artists/ArtistPreview'; 
+import { Button, Container, Row } from 'react-bootstrap';
 import NoResultsPage from '../Fetching/NoResultsPage';
 import ArtistList from '../../components/Artists/ArtistList';
 import LoadingPage from '../Fetching/LoadingPage';
 
 function Artists() {
 
-  const location = useLocation(); 
   const [artists, setArtists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [urls, setUrls] = useState({

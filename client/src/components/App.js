@@ -11,6 +11,7 @@ import Home from '../pages/Users/Home';
 // Albums
 import Albums from '../pages/Albums/Albums';
 import AlbumPage from '../pages/Albums/AlbumPage';
+import NewAlbum from '../pages/Albums/NewAlbum';
 
 
 // Artists
@@ -45,7 +46,7 @@ function App() {
         </Route>
         <Route path='/albums'>
           <Route index element={<Albums/>}/>
-          <Route path='new' element={<h1>New Album</h1>}/>
+          <Route path='new' element={<NewAlbum/>}/>
           <Route path=':albumId' element={<AlbumPage/>}/>
         </Route>
       </Routes>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Card, Carousel, Container, Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Card, Carousel, Container } from 'react-bootstrap';
 import { Link  } from 'react-router-dom';
 
 function Home() {

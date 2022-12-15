@@ -15,7 +15,7 @@ function ArtistDisplay({ artist }) {
         </Col>
         <Col>
           <h1 className='mb-3'>{artist.name}</h1>
-          <h3 className='text-muted'>{artist.lcation}</h3>
+          <h3 className='text-muted'>{artist.location}</h3>
         </Col>
       </Row>
       <hr/>
