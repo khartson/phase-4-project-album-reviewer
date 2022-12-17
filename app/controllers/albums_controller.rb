@@ -1,10 +1,13 @@
 class AlbumsController < ApplicationController
 include Pagy::Backend 
+
   def create
+    album = Album.create!(album_params)
+    render json: album, status: :created
   end 
 
   def index
-    @pagy, @records = pagy(Album.all)
+    @pagy, @records = pagy(Album.order(updated_at: :desc))
     render json: { 
     data:  
       ActiveModel::Serializer::CollectionSerializer.new(

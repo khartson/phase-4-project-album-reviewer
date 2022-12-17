@@ -6,7 +6,7 @@ function NewAlbum() {
   
   return(
     <Container>
-      <h1>New Album</h1>
+      <h1 className='d-flex justify-content-center'>New Album</h1>
       <NewAlbumForm/>
     </Container>
   )

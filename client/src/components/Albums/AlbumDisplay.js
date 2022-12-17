@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Image, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 function AlbumDisplay({ album }) {
 
@@ -26,7 +27,8 @@ function AlbumDisplay({ album }) {
           </LinkContainer>
         </Col>
       </Row>
-      <hr></hr>
+      <hr/>
+      <Link to='/albums'>Return to Albums</Link>
     </Container>
   )
 }
