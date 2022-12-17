@@ -42,7 +42,7 @@ function NewArtistForm() {
     }).then((r)=>{
       setLoading(false)
       if (r.ok) {
-        r.json().then((r)=>navigate('/artists'))
+        navigate('/artists')
       } else {
         r.json().then((errors)=> setErrors(errors.errors))
       }

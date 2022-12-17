@@ -2,10 +2,19 @@ class ArtistsController < ApplicationController
 include Pagy::Backend
 
   def index
-    @pagy, @records = pagy(Artist.all)
-    render json: { data: @records,
+    if params[:search]
+      @pagy, @artists = pagy(Artist.search_by_name(params[:search]), items: 5)
+      render json: {
+        data:
+          ActiveModel::Serializer::CollectionSerializer.new(
+            @artists, serializer: ArtistSearchSerializer)
+      }
+    else 
+      @pagy, @records = pagy(Artist.order(updated_at: :desc))
+      render json: { data: @records,
                    **pagy_metadata(@pagy)
                   }
+    end 
   end 
 
   def create
