@@ -12,6 +12,14 @@ kyle = User.create!({ username: "khartson2017", password: 'hello',
                       pfp_url: 'https://external-preview.redd.it/A9P8zspGcFahsizLp_5bB5Zk6gHUmU2rlkO8buxpjdg.jpg?auto=webp&s=6d7728a892b380d052b794504eadd2784f0b84d1'
                     }
                   })
+
+seth = User.create!({ username: "seth20", password: "hello",
+                      profile_attributes: {
+                        name: "Seth",
+                        bio: "Coder, music fan",
+                        pfp_url: "https://upload.wikimedia.org/wikipedia/en/1/13/The_Mantle.jpg"
+                      }})
+
 artists = Artist.create([
   { name: "The Fall of Troy", location: "WAS, US", image_url: 'https://media.altpress.com/uploads/2020/08/FALL-OF-TROY.jpg'},
   { name: "Agalloch", location: "WAS, US", image_url: "https://upload.wikimedia.org/wikipedia/en/1/13/The_Mantle.jpg"},
@@ -38,4 +46,10 @@ albums = Album.create([
   { title: "Bismillah", artist_id: 5, album_art_url: 'https://f4.bcbits.com/img/a0285204730_10.jpg'},
   { title: "Collide with the Sky", artist_id: 6, album_art_url: 'https://m.media-amazon.com/images/I/61L6K5Igt-L._SY580_.jpg'},
   { title: "Colors", artist_id: 7, album_art_url: 'https://upload.wikimedia.org/wikipedia/en/c/cb/Colors1.jpg'},
+])
+
+reviews = Review.create([
+  { user_id: kyle.id, rating: 5, album_id: 1, content: "Best album of all time"},
+  { user_id: kyle.id, rating: 5, album_id: 2, content: "Solid album" },
+  { user_id: seth.id, rating: 5, album_id: 1, content: "GOAT album for sure"},
 ])

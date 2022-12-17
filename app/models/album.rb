@@ -1,6 +1,8 @@
 class Album < ApplicationRecord
 
   belongs_to :artist 
+  has_many :reviews
+  has_many :users, through: :reviews
 
   validates :title, presence: true
   validates :artist, presence: true
