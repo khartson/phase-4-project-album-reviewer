@@ -28,6 +28,9 @@ function AlbumDisplay({ album }) {
         </Col>
       </Row>
       <hr/>
+      <Row>
+        <h1 className='text-muted'>Reviews</h1>
+      </Row>
       <Link to='/albums'>Return to Albums</Link>
     </Container>
   )
