@@ -2,12 +2,14 @@ import React from 'react';
 import { Row, Col, Image, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-function AlbumDisplay({ album }) {
+import ReviewList from '../Reviews/ReviewList';
+
+function AlbumDisplay({ album, userReviewed }) {
 
   return(
     <Container>
       <Row>
-        <h1 class='text-muted'>Album Information</h1>
+        <h1 className='text-muted'>Album Information</h1>
       </Row>
       <Row xs='auto'>
         <Col>
@@ -30,6 +32,9 @@ function AlbumDisplay({ album }) {
       <hr/>
       <Row>
         <h1 className='text-muted'>Reviews</h1>
+      </Row>
+      <Row>
+        <ReviewList userReviewed={userReviewed} albumId={album.id} reviews={album.reviews}/>
       </Row>
       <Link to='/albums'>Return to Albums</Link>
     </Container>

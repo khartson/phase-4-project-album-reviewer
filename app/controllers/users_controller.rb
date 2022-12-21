@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end 
 
   def auth
-    render json: @current_user
+    render json: @current_user, serializer: UserProfileSerializer
   end 
 
   private 

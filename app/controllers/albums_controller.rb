@@ -19,7 +19,7 @@ include Pagy::Backend
 
   def show 
     album = Album.find(params[:id])
-    render json: album
+    render json: album, include: ['artist', 'reviews', 'reviews.user', 'reviews.user.profile'], current_user_id: @current_user.id
   end 
 
   private

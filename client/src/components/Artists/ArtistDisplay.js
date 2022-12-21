@@ -7,7 +7,7 @@ function ArtistDisplay({ artist }) {
   return(
     <Container>
       <Row>
-        <h1 class='text-muted'>Artist Information</h1>
+        <h1 className='text-muted'>Artist Information</h1>
       </Row>
       <Row xs='auto'>
         <Col>
