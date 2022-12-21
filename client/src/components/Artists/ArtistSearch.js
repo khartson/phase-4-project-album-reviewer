@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Col } from 'react-bootstrap';
 import AsyncSelect from 'react-select/async';
-
 import debounce from 'lodash.debounce';
 
 function ArtistSearch({ setArtist }) {

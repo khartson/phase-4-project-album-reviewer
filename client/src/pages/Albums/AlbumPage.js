@@ -26,7 +26,7 @@ function AlbumPage() {
     <>
       {album ? (
         <>
-          <AlbumDisplay album={album}/>
+          <AlbumDisplay userReviewed={album.user_reviewed} album={album}/>
         </>
       ) : (
         <NoResultsPage category='artists'/>
