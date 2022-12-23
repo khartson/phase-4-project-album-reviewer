@@ -5,20 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-kyle = User.create!({ username: "khartson2017", password: 'hello', 
-                     profile_attributes: {
-                      name: "Kyle",
-                      bio: 'Fall of Troy superfan', 
-                      pfp_url: 'https://external-preview.redd.it/A9P8zspGcFahsizLp_5bB5Zk6gHUmU2rlkO8buxpjdg.jpg?auto=webp&s=6d7728a892b380d052b794504eadd2784f0b84d1'
-                    }
-                  })
+# kyle = User.create!({ username: "khartson2017", password: 'hello', 
+#                      profile_attributes: {
+#                       name: "Kyle",
+#                       bio: 'Fall of Troy superfan', 
+#                       pfp_url: 'https://external-preview.redd.it/A9P8zspGcFahsizLp_5bB5Zk6gHUmU2rlkO8buxpjdg.jpg?auto=webp&s=6d7728a892b380d052b794504eadd2784f0b84d1'
+#                     }
+#                   })
 
-seth = User.create!({ username: "seth20", password: "hello",
-                      profile_attributes: {
-                        name: "Seth",
-                        bio: "Coder, music fan",
-                        pfp_url: "https://upload.wikimedia.org/wikipedia/en/1/13/The_Mantle.jpg"
-                      }})
+# seth = User.create!({ username: "seth20", password: "hello",
+#                       profile_attributes: {
+#                         name: "Seth",
+#                         bio: "Coder, music fan",
+#                         pfp_url: "https://upload.wikimedia.org/wikipedia/en/1/13/The_Mantle.jpg"
+#                       }})
 
 artists = Artist.create([
   { name: "The Fall of Troy", location: "WAS, US", image_url: 'https://media.altpress.com/uploads/2020/08/FALL-OF-TROY.jpg'},
@@ -52,8 +52,8 @@ albums = Album.create([
   { title: "Homey", artist_id: 8, album_art_url: "https://upload.wikimedia.org/wikipedia/commons/1/10/CHON_-_HOMEY.jpg"}
 ])
 
-reviews = Review.create([
-  { user_id: kyle.id, rating: 5, album_id: 1, content: "Best album of all time"},
-  { user_id: kyle.id, rating: 5, album_id: 2, content: "Solid album" },
-  { user_id: seth.id, rating: 5, album_id: 1, content: "GOAT album for sure"},
-])
+# reviews = Review.create([
+#   { user_id: kyle.id, rating: 5, album_id: 1, content: "Best album of all time"},
+#   { user_id: kyle.id, rating: 5, album_id: 2, content: "Solid album" },
+#   { user_id: seth.id, rating: 5, album_id: 1, content: "GOAT album for sure"},
+# ])
