@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Rating from 'react-rating';
-import { Card, Row, Col, Image, Button, Form, Badge } from 'react-bootstrap';
+import { Card, Row, Col, Image, Button, Form } from 'react-bootstrap';
 import { BsStarFill, BsStar } from 'react-icons/bs';
 import { LinkContainer } from 'react-router-bootstrap';
 import { HiPencil } from 'react-icons/hi';
 import { IoIosCheckmark } from 'react-icons/io'
 
-function Review({ review, updateReviews }) {
+function Review({ review, updateReviews, onDeleteReview }) {
 
-  console.log(review);
   const [editedContent, setEditedContent] = useState(review.content);
   const [rating, setRating] = useState(review.rating);
   const [editable, setEditable] = useState(false);
@@ -42,12 +41,23 @@ function Review({ review, updateReviews }) {
       }
     })
   }
+
+  function deleteReview() {
+    fetch(`/reviews/${review.id}`, {
+      method: "DELETE",
+    }).then((r)=> {
+      if (r.ok) {
+        onDeleteReview(review);
+      }
+    })
+
+  }
   return(
     <Card className='mb-3'>
       <Card.Header>
         <Row>
         <Col sm>
-          <LinkContainer to={`/users/${review.user.id}/profile`}>
+          <LinkContainer to={`/users/${review.user.id}`}>
             <div>
               <Image roundedCircle height={30} width={30} src={review.user.profile.pfp_url}/>
               {' '}<span>{review.user.profile.name}</span>
@@ -85,7 +95,14 @@ function Review({ review, updateReviews }) {
                 variant='outline-secondary' 
                 size='sm'
                 type='submit'
+                style={{ marginRight: '10px' }}
               >Save changes <IoIosCheckmark className='mb-1'/>
+            </Button>
+            <Button
+              variant='outline-danger'
+              size='sm'
+              onClick={deleteReview}
+            > Delete Review
             </Button>
             </Form>) :
             ( review.content

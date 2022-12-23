@@ -24,7 +24,7 @@ function Home() {
             </div>
           </Card>
         </Carousel.Item>
-        <Carousel.Item>
+        <Carousel.Item >
           <Card className='bg-dark' style={{ width: '30rem', height: '30rem'}}>
             <div style={{ textAlign: 'center', position: 'relative', top: '50%', top: '50%'}}>
               <Card.Title className='text-white'>See community music reviews</Card.Title>

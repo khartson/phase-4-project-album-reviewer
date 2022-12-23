@@ -1,4 +1,5 @@
 class Album < ApplicationRecord
+include PgSearch::Model
 
   belongs_to :artist 
   has_many :reviews
@@ -8,13 +9,8 @@ class Album < ApplicationRecord
   validates :artist, presence: true
   validates :album_art_url, presence: true
 
-  # validate :artist_already_has_this_album, on: :create
+  pg_search_scope :search_by_title, against: :title, using: [:tsearch, :trigram]
 
   validates :title, uniqueness: { scope: :artist, case_sensitive: false, message: "Already exists for this artist"}
-  # def artist_already_has_this_album
-  #   if Album.where("LOWER(title) = ? AND artist_id = ?", self.title.downcase, self.artist_id).exists?
-  #     then errors.add('Album already exists for: ', self.artist.name)
-  #   end 
-  # end 
 
 end

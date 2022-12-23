@@ -6,6 +6,7 @@ import Login from '../pages/Users/Login';
 import Account from '../pages/Users/Account';
 import NavBar from './NavBar';
 import Home from '../pages/Users/Home'; 
+import UserPage from '../pages/Users/UserPage';
 
 
 // Albums
@@ -48,6 +49,9 @@ function App() {
           <Route index element={<Albums/>}/>
           <Route path='new' element={<NewAlbum/>}/>
           <Route path=':albumId' element={<AlbumPage/>}/>
+        </Route>
+        <Route path='/users'>
+          <Route path=':userId' element={<UserPage/>}/>
         </Route>
       </Routes>
     </>

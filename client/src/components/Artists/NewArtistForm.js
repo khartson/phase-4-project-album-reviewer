@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Form, Image, Alert, Button, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+const placeholderUrl = 'https://via.placeholder.com/150/000000/FFFFFF/?text=Artist Image';
+
 function NewArtistForm() {
  
   const navigate = useNavigate(); 
@@ -51,7 +53,8 @@ function NewArtistForm() {
 
   return (
     <Form onSubmit={handleArtistSubmission}>
-      <Image height={50} width={50} className='mb-3' roundedCircle src={formData.image_url}/>
+      <Image height={50} width={50} className='mb-3' roundedCircle 
+              src={formData.image_url? formData.image_url : placeholderUrl}/>
       <Form.Group className='mb-3'>
         <Form.Label>Artist Image URL</Form.Label>
         <Form.Control

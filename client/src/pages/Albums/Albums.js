@@ -3,7 +3,9 @@ import { Button, Container, Row } from 'react-bootstrap';
 import LoadingPage from '../Fetching/LoadingPage';
 import NoResultsPage from '../Fetching/NoResultsPage';
 import AlbumList from '../../components/Albums/AlbumList';
-
+import Searchbar from '../../components/Searchbar';
+import { AiOutlinePlus } from 'react-icons/ai';
+import { Link } from 'react-router-dom'; 
 
 function Albums() {
   
@@ -53,12 +55,18 @@ function Albums() {
   if (loading) return <LoadingPage/>
   return (
     <Container>
-      <hr></hr>
+      <hr/>
+      <Searchbar category='albums'/>
       <Row sm={'auto'}>
       { albums.length === 0 ? (
         <NoResultsPage category='albums'/>
       ) : (
-        <AlbumList albums={albums}/>
+        <>
+          <AlbumList albums={albums}/>
+          <div className='' style={{ width: '2rem', height: '14rem', textAlign: 'center'}}>
+            <Link style={{ color: 'gray', textDecoration: "none"}} to='/albums/new'><AiOutlinePlus style={{marginTop: '7rem'}}/></Link>
+          </div>
+        </>
       )}
       </Row>
       <hr/>

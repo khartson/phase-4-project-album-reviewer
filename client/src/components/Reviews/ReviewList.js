@@ -6,6 +6,8 @@ import ReviewForm from './ReviewForm';
 function ReviewList({ albumId, userReviewed }) {
 
   const [reviews, setReviews] = useState([]);
+  const [hasReviewed, setReviewed] = useState(userReviewed);
+
   useEffect(()=>{
     fetch(`/reviews/?album_id=${albumId}`).then((r)=>{
       r.json().then((r)=>setReviews(r));
@@ -25,8 +27,15 @@ function ReviewList({ albumId, userReviewed }) {
   }
 
   function addReview(newReview) {
-    const newReviews = [...reviews, newReview]
+    const newReviews = [...reviews, newReview];
     setReviews(newReviews);
+    setReviewed(true);
+  }
+
+  function deleteReview(deletedReview) {
+    const newReviews = reviews.filter((review)=> review.id !== deletedReview.id);
+    setReviews(newReviews);
+    setReviewed(false);
   }
 
   return (
@@ -34,13 +43,13 @@ function ReviewList({ albumId, userReviewed }) {
     <Row>
       <Stack>
         {reviews.map((review)=>{
-          return <Review updateReviews={updateReviews} key={review.id} review={review}/>
+          return <Review onDeleteReview={deleteReview} updateReviews={updateReviews} key={review.id} review={review}/>
         })}
       </Stack>
       <h2 className='text-muted'>Review this Album</h2>
     </Row>
     <hr/>
-    {!userReviewed? (
+    {!hasReviewed ? (
     <Container className='border rounded' style={{ padding: '16px' }}>
       <ReviewForm userReviewed={userReviewed} addReview={addReview} albumId={albumId}/>
     </Container>

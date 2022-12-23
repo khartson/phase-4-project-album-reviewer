@@ -3,7 +3,7 @@ import { Card, Image } from 'react-bootstrap';
 function Profile({ user }) {
 
     return(
-      <Card border='primary' style={{width:'18rem'}}>
+      <Card style={{width:'18rem'}}>
         <Card.Body>
           <Image roundedCircle height={50} width={50} src={user.profile.pfp_url}/>
           <Card.Title>{user.profile.name}</Card.Title>

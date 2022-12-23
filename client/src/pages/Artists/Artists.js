@@ -3,7 +3,9 @@ import { Button, Container, Row } from 'react-bootstrap';
 import NoResultsPage from '../Fetching/NoResultsPage';
 import ArtistList from '../../components/Artists/ArtistList';
 import LoadingPage from '../Fetching/LoadingPage';
-
+import { AiOutlinePlus } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import Searchbar from '../../components/Searchbar';
 function Artists() {
 
   const [artists, setArtists] = useState([]);
@@ -52,11 +54,17 @@ function Artists() {
   return(
       <Container>
       <hr/>
+      <Searchbar category='artists'/>
       <Row sm={'auto'}>
       { artists.length === 0 ? (
           <NoResultsPage category={'artists'}/>
       ) : (
-        <ArtistList artists={artists}/>
+        <>
+          <ArtistList artists={artists}/>
+          <div className='' style={{ width: '2rem', height: '14rem', textAlign: 'center'}}>
+            <Link style={{ color: 'gray', textDecoration: "none"}} to='/artists/new'><AiOutlinePlus style={{marginTop: '7rem'}}/></Link>
+          </div>
+        </>
       )}
       </Row>
       <hr/>

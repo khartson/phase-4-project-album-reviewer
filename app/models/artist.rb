@@ -1,6 +1,8 @@
 class Artist < ApplicationRecord
 include PgSearch::Model
-  validates :name, presence: true, uniqueness: { case_sensitive: false}
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :location, presence: true
+  validates :image_url, presence: true
 
   has_many :albums
 

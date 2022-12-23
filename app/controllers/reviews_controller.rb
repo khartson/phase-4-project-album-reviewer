@@ -26,7 +26,12 @@ class ReviewsController < ApplicationController
     render json: review, include: ['user', 'user.profile'], current_user: @current_user
   end 
 
-  def destoy
+  def destroy
+    review = find_review
+    if current_user?(review)
+      review.destroy
+      head :no_content
+    end 
   end 
   
   private
