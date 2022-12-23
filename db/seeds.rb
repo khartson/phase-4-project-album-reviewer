@@ -28,6 +28,9 @@ artists = Artist.create([
   { name: "Peter Cat Recording Company", location: "Delhi, India", image_url: "https://sungenre.com/wp-content/uploads/2019/06/peter-cat-recording-co-bismillah.jpg"},
   { name: "Pierce the Veil", location: "CA, US", image_url: "https://s1.ticketm.net/dam/a/341/3fcb5538-bae3-4be3-b94c-1a3404de7341_263031_TABLET_LANDSCAPE_LARGE_16_9.jpg"},
   { name: "Between the Buried and Me", location: "NC, US", image_url: "https://i.scdn.co/image/ab6761610000e5eb87fc314a9b6b9f18e6e32278"},
+  { name: "CHON", location: "CA, US", image_url: 'https://lastfm.freetls.fastly.net/i/u/ar0/aefda6af4ce198590605afb40e67e14e.jpg' },
+  { name: "Great Grandpa", location: "WAS, US", image_url: "https://i.ytimg.com/vi/4AnHSlFmnS0/maxresdefault.jpg"},
+  { name: "Good Tiger", location: "United States", image_url: "https://images.squarespace-cdn.com/content/v1/56a53a33cbced66ef862bb26/1504142034385-2XPPZ52C2BP8RLHWVS4R/GOODTIGER_080817_097.jpg?format=2500w"}
 ])
 
 albums = Album.create([
@@ -46,6 +49,7 @@ albums = Album.create([
   { title: "Bismillah", artist_id: 5, album_art_url: 'https://f4.bcbits.com/img/a0285204730_10.jpg'},
   { title: "Collide with the Sky", artist_id: 6, album_art_url: 'https://m.media-amazon.com/images/I/61L6K5Igt-L._SY580_.jpg'},
   { title: "Colors", artist_id: 7, album_art_url: 'https://upload.wikimedia.org/wikipedia/en/c/cb/Colors1.jpg'},
+  { title: "Homey", artist_id: 8, album_art_url: "https://upload.wikimedia.org/wikipedia/commons/1/10/CHON_-_HOMEY.jpg"}
 ])
 
 reviews = Review.create([
